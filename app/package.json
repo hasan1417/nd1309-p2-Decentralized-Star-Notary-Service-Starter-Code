@@ -7,10 +7,21 @@
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^4.6.0",
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@ethereumjs/tx": "^3.4.0",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "ethers": "^5.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "stream-http": "^3.2.0",
+    "style-loader": "^3.3.1",
+    "web3": "^1.6.1",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
   },
   "dependencies": {
     "openzeppelin-solidity": "^2.3.0",
