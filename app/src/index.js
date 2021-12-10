@@ -22,6 +22,8 @@ const App = {
       const accounts = await web3.eth.getAccounts();
       this.account = accounts[0];
     } catch (error) {
+
+      console.log(await web3.eth.net.getId())
       console.error("Could not connect to contract or chain.");
     }
   },
@@ -41,7 +43,9 @@ const App = {
 
   // Implement Task 4 Modify the front end of the DAPP
   lookUp: async function (){
-    
+    const starId = document.getElementById("lookid").value
+    console.log(await this.meta.methods.ownerOf(starId).call())
+    console.log(await this.meta.methods.tokenIdToStarInfo(starId).call())
   }
 
 };
@@ -49,16 +53,16 @@ const App = {
 window.App = App;
 
 window.addEventListener("load", async function() {
-  if (window.ethereum) {
-    // use MetaMask's provider
-    App.web3 = new Web3(window.ethereum);
-    await window.ethereum.enable(); // get permission to access accounts
-  } else {
-    console.warn("No web3 detected. Falling back to http://127.0.0.1:9545. You should remove this fallback when you deploy live",);
+  // if (window.ethereum) {
+  //   // use MetaMask's provider
+  //   App.web3 = new Web3(window.ethereum);
+  //   await window.ethereum.enable(); // get permission to access accounts
+  // } else {
+    // console.warn("No web3 detected. Falling back to http://127.0.0.1:9545. You should remove this fallback when you deploy live",);
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     App.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"),);
     console.log(App.web3.eth.accounts);
-  }
+  // }
 
   App.start();
 });
