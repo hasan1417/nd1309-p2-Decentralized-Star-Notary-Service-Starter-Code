@@ -14,13 +14,15 @@ contract StarNotary is ERC721 {
     // Implement Task 1 Add a name and symbol properties
     // name: Is a short name to your token
     // symbol: Is a short string like 'USD' -> 'American Dollar'
+    string public name = "CryptoStar";
+    string public symbol = "CSR"; 
     
 
     // mapping the Star with the Owner Address
     mapping(uint256 => Star) public tokenIdToStarInfo;
     // mapping the TokenId and price
     mapping(uint256 => uint256) public starsForSale;
-
+    
     
     // Create Star using the Struct
     function createStar(string memory _name, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
@@ -70,7 +72,7 @@ contract StarNotary is ERC721 {
         require(ownerOf(_tokenId1) == msg.sender || ownerOf(_tokenId2) == msg.sender, "You can't exchange the Star you don't owned");
 
         address ownerOfToken1 = ownerOf(_tokenId1);
-         address ownerOfToken2 = ownerOf(_tokenId2);
+        address ownerOfToken2 = ownerOf(_tokenId2);
 
         _transferFrom(ownerOfToken1, ownerOfToken2, _tokenId1);
         _transferFrom(ownerOfToken2, ownerOfToken1, _tokenId2);

@@ -24,7 +24,7 @@ npm uninstall -g truffle
 # Install
 npm install -g truffle
 # Specify a particular version
-npm install -g truffle@5.0.2
+npm install -g truffle@v5.4.23
 # Verify the version
 truffle version
 ```
